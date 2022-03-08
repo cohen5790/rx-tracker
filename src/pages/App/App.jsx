@@ -6,7 +6,9 @@ export default class App extends Component {
   render() {
     return (
       <main className="App">
-        <h1>Rx-Tracker</h1>
+        <nav>
+          <link to="rxList">Rx List</link>
+        </nav>
       </main>
     );
   }
