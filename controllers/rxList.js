@@ -1,12 +1,11 @@
-const MedicationModel = require('../models/medication.js'); 
+const Medication = require('../models/medication.js'); 
 
 module.exports = {
     index,
-    create
 }
 
 async function index(req, res) {
-   const meds = await Medications.find({}).sort('name').exec();
+   const meds = await Medication.find({}).sort('name').exec();
    res.json(meds);
  }
 
@@ -19,8 +18,3 @@ async function index(req, res) {
 //  }
 // }
 
-// async function addToCart(req, res) {
-//    const cart = await Order.getCart(req.user._id);
-//    await cart.addItemToCart(req.params.id); 
-//    res.json(cart);
-//  }

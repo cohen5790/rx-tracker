@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const orderCtrl = require('../../controllers/rxList');
+const rxListCtrl = require('../../controllers/rxList');
 
-router.post('/', rxCtrl.create)
+router.post('/', rxListCtrl.index)
 
 module.exports = router;
