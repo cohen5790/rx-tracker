@@ -5,7 +5,7 @@ module.exports = {
 }
 
 async function index(req, res) {
-   const meds = await Medication.find({}).sort('name').exec();
+   const meds = await Medication.find({}).exec();
    res.json(meds);
  }
 

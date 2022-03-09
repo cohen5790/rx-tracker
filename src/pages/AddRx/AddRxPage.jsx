@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class AddRxPage extends React.Component {
+export default class AddRxPage extends Component {
 
     render() {
         return(
-            <>
+            <div className="addRx">
                 <nav className="nav">
                     <h1>Rx-Tracker</h1>
                     <Link>Rx Schedule</Link><br></br>
@@ -13,7 +13,7 @@ export default class AddRxPage extends React.Component {
                     <Link>Log Out</Link><br></br>
                 </nav>
                 Add Rx Page
-            </>
+            </div>
         );
     }
 }

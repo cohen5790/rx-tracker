@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import PharmInfo from '../../components/PharmInfo/PharmInfo';
 
-export default class AddRxPage extends React.Component {
+export default class AddRxPage extends Component {
 
     render() {
         return(
