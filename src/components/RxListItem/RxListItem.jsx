@@ -6,7 +6,6 @@ export default function RxListItem({ listItem }) {
       <div className="name">{listItem.name}</div>
       <div className="dose">{listItem.dose}</div>
       <div className="perDiem">{listItem.perDiem}</div>
-      <div className="perWeek">{listItem.perWeek}</div>
     </div>
   );
 }

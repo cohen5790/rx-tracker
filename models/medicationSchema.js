@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const medicationSchema = new Schema({
@@ -9,14 +8,10 @@ const medicationSchema = new Schema({
         min: 1,
         max: 8,
     },
-    perWeek: {
-        type: Number,
-        min: 1,
-        max: 7,
-    }
+    
 }, {
     timestamps: true
 });
 
 
-module.exports = mongoose.model('Medication', medicationSchema);
+module.exports = medicationSchema

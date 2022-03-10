@@ -5,10 +5,10 @@ export default class AddRxPage extends Component {
 
     render() {
         return(
-            <>
+            <div className='pharmInfo'>
                 <NavBar />
                 Pharm Info Page
-            </>
+            </div>
         );
     }
 }
