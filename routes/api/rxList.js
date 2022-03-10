@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const rxScheduleCtrl = require('../../controllers/RxSchedule');
-const addRxCtrl = require('../../controllers/AddRx');
+const rxListCtrl = require('../../controllers/RxList');
 
-router.post('/RxList', rxScheduleCtrl.index)
-router.post('/AddRx', addRxCtrl.create)
-router.post('/AddRx', addRxCtrl.addRxToList)
+router.post('/RxSchedule', rxScheduleCtrl.index)
+router.post('/RxList', rxListCtrl.create)
+router.post('/RxList', rxListCtrl.addRxToList)
 
 module.exports = router;

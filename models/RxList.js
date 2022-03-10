@@ -14,7 +14,7 @@ const medicationSchema = new Schema({
 
 const RxListSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
-    RxListItems: [] //embed
+    RxListItems: [medicationSchema]
   }, {
     timestamps: true,
     toJSON: { virtuals: true }
