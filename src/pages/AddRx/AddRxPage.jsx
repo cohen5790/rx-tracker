@@ -5,10 +5,7 @@ import AddRxForm from '../../components/AddRxForm/AddRxForm'
 
 export default class AddRxPage extends Component {
 
-    // async function handleAddToList(itemId) {
-    //     const cart = await ordersAPI.addItemToCart(itemId);
-    //     setCart(cart);
-    // }
+
 
 
     render() {

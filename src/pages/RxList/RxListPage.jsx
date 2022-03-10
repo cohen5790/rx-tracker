@@ -8,7 +8,6 @@ export default class RxListPage extends Component {
         return(
             <div className="RxList">
                 <NavBar />
-                <h1>List</h1>
                 
             </div>
         );

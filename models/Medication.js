@@ -8,10 +8,7 @@ const medicationSchema = new Schema({
         min: 1,
         max: 8,
     },
-    
-}, {
-    timestamps: true
+    timestamps: true,
 });
 
-
-module.exports = medicationSchema
+module.exports = mongoose.model('Medication', medicationSchema)

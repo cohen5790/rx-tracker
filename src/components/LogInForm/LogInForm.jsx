@@ -14,7 +14,7 @@ export default function LoginForm({ setUser }) {
     evt.preventDefault();
     try {
       const user = await login(credentials);
-      setUser(user);
+      this.props.setUserInState(user);
     } catch {
       setError('Log In Failed - Try Again');
     }
@@ -22,8 +22,8 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div>
-      <div className="form-container" onSubmit={handleSubmit}>
-        <form autoComplete="off" >
+      <div className="form-container" >
+        <form autoComplete="off" onSubmit={handleSubmit}>
           <label>Email</label>
           <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
           <label>Password</label>

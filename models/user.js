@@ -6,7 +6,7 @@ const userSchema = new Schema({
   email: {
     type: String,
     unique: true,
-    trim: true, // trims whitespace if your user types something like " alex@123.com " into "alex@123.com"
+    trim: true, 
     required: true
   },
   password: {
@@ -17,7 +17,6 @@ const userSchema = new Schema({
   }
 }, {
   timestamps: true,
-  // A cool mongoose trick to not send passwords to clients! (even though they'll be hashed)
   toJSON: {
     transform: function(doc, ret) {
       delete ret.password;
@@ -25,5 +24,15 @@ const userSchema = new Schema({
     }
   }
 });
+
+// userSchema.pre('save', function(next) {
+//   const user = this;
+//   if (!user.isModified('password')) return next();
+//   bcrypt.hash(user.password, SALT_ROUNDS, function(err, hash) {
+//     if (err) return next(err);
+//     user.password = hash;
+//     return next();
+//   });
+// });
 
 module.exports = mongoose.model('User', userSchema);

@@ -33,8 +33,8 @@ export default class SignUpForm extends Component {
       let token = await fetchResponse.json() // 3. decode fetch response to get jwt from srv
       localStorage.setItem('token', token);  // 4. Stick token into localStorage
       
-      const userDoc = JSON.parse(atob(token.split('.')[1])).user; // 5. Decode the token + put user document into state
-      this.props.setUserInState(userDoc)
+      const user = JSON.parse(atob(token.split('.')[1])).user; // 5. Decode the token + put user document into state
+      this.props.setUserInState(user)
 
     } catch (err) {
       console.log("SignupForm error", err)

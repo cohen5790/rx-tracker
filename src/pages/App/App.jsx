@@ -38,7 +38,7 @@ export default class App extends Component {
   render() {
     return (
       <main className="App">
-      { user ?
+      { this.state.user ?
           <Switch>    
             <Route path='/RxList' render={(props) => (
               <RxListPage {...props}/>
