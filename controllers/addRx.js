@@ -1,8 +1,13 @@
 const RxList = require('../../models/RxList');
-const Medication = require('../models/Medication.js'); 
+const Medication = require('../models/RxSchedule.js'); 
 
 module.exports = {
+    create,
     addRxToList,
+}
+
+async function create(req, res) {
+
 }
 
 async function addRxToList(req, res) {

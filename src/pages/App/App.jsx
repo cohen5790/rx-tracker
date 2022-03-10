@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import RxListPage from '../RxList/RxListPage.jsx';
+import RxSchedulePage from '../RxSchedule/RxSchedulePage.jsx';
 import AddRxPage from '../AddRx/AddRxPage.jsx';
 import PharmacyPage from '../Pharmacy/PharmacyPage.jsx';
 import AuthPage from '../AuthPage/AuthPage.jsx';
@@ -40,8 +40,8 @@ export default class App extends Component {
       <main className="App">
       { this.state.user ?
           <Switch>    
-            <Route path='/RxList' render={(props) => (
-              <RxListPage {...props}/>
+            <Route path='/RxSchedule' render={(props) => (
+              <RxSchedulePage {...props}/>
             )}/>
             <Route path='/AddRx' render={(props) => (
               <AddRxPage {...props}/>
@@ -49,7 +49,7 @@ export default class App extends Component {
             <Route path='/Pharmacy' render={(props) => (
               <PharmacyPage {...props}/>
             )}/>
-            <Redirect to="/RxList" />
+            <Redirect to="/RxSchedule" />
           </Switch>
           :
           <AuthPage setUserInState={this.setUserInState}/>

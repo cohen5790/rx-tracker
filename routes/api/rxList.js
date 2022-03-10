@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const rxListCtrl = require('../../controllers/RxList');
+const rxScheduleCtrl = require('../../controllers/RxSchedule');
 const addRxCtrl = require('../../controllers/AddRx');
 
-router.post('/RxList', rxListCtrl.index)
+router.post('/RxList', rxScheduleCtrl.index)
+router.post('/AddRx', addRxCtrl.create)
 router.post('/AddRx', addRxCtrl.addRxToList)
 
 module.exports = router;
