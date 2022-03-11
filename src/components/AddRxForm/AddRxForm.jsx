@@ -50,42 +50,42 @@ export default class AddRxPage extends Component {
     this.setState({ [evt.target.name]: evt.target.value });
   };
 
-  deleteRxFromList = async (evt) => {
-    evt.preventDefault();
-    let MedObj = {
-      name: this.state.name,
-      dosage: this.state.dosage,
-      perdiem: this.state.perdiem
-    };
-    let tokenDelete;
-    try {
-    let jwt = localStorage.getItem('token')
-    const fetchResponse = await fetch('/api/RxList', {
-      method: 'DELETE',
-      headers: {"Content-Type": "application/json", 'Authorization': 'Bearer ' + jwt},
-      body: JSON.stringify(MedObj)
-    })
+  // deleteRxFromList = async (evt) => {
+  //   evt.preventDefault();
+  //   let MedObj = {
+  //     name: this.state.name,
+  //     dosage: this.state.dosage,
+  //     perdiem: this.state.perdiem
+  //   };
+  //   let tokenDelete;
+  //   try {
+  //   let jwt = localStorage.getItem('token')
+  //   const fetchResponse = await fetch('/api/RxList', {
+  //     method: 'DELETE',
+  //     headers: {"Content-Type": "application/json", 'Authorization': 'Bearer ' + jwt},
+  //     body: JSON.stringify(MedObj)
+  //   })
     
-    if (!fetchResponse.ok) throw new Error('Fetch failed - Bad request')
+  //   if (!fetchResponse.ok) throw new Error('Fetch failed - Bad request')
 
-    tokenDelete = await fetchResponse.json()
-    const payload = JSON.parse(atob(tokenDelete.split('.')[1]));
-      console.log(tokenDelete, payload)
-    let userDoc = payload.updatedUserDelete 
-    this.props.setUserInState(userDoc)
-      console.log(userDoc)
-    localStorage.removeItem('token')
-    localStorage.setItem('token', tokenDelete); 
-    } catch (err) {
-    console.log("addRX error", err)
-    this.setState({ error: 'Add Medication Failed - Try Again' });
-  }
+  //   tokenDelete = await fetchResponse.json()
+  //   const payload = JSON.parse(atob(tokenDelete.split('.')[1]));
+  //     console.log(tokenDelete, payload)
+  //   let userDoc = payload.updatedUserDelete 
+  //   this.props.setUserInState(userDoc)
+  //     console.log(userDoc)
+  //   localStorage.removeItem('token')
+  //   localStorage.setItem('token', tokenDelete); 
+  //   } catch (err) {
+  //   console.log("addRX error", err)
+  //   this.setState({ error: 'Add Medication Failed - Try Again' });
+  // }
     
-    let RxList = [...this.state.RxList, MedObj];
-    this.setState({ RxList, name: "enter medication name", dosage: "enter dose", perdiem: 1 });
-    console.log(RxList);
-      console.log(MedObj);    
-  };
+  //   let RxList = [...this.state.RxList, MedObj];
+  //   this.setState({ RxList, name: "enter medication name", dosage: "enter dose", perdiem: 1 });
+  //   console.log(RxList);
+  //     console.log(MedObj);    
+  // };
 
   render() {
     return (
@@ -98,7 +98,8 @@ export default class AddRxPage extends Component {
             <div>{obj.name}</div> 
             <div>{obj.dosage}</div>
             <div>{obj.perdiem} times a day</div>
-            <button className="deleteRxBtn" onClick={this.deleteRxFromList}>Delete Rx</button>
+            <button className="deleteRxBtn">Delete Rx</button> 
+            {/* onClick={this.deleteRxFromList} */}
           </article>
         ))
         :
