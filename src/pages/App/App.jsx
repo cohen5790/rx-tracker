@@ -5,6 +5,7 @@ import RxSchedulePage from '../RxSchedule/RxSchedulePage.jsx';
 import AddRxPage from '../AddRx/AddRxPage.jsx';
 import PharmacyPage from '../Pharmacy/PharmacyPage.jsx';
 import AuthPage from '../AuthPage/AuthPage.jsx';
+import NavBar from '../../components/NavBar/NavBar';
 
 
 
@@ -38,6 +39,7 @@ export default class App extends Component {
   render() {
     return (
       <main className="App">
+      <NavBar />
       { this.state.user ?
           <Switch>                
             <Route path='/RxSchedule' render={(props) => (

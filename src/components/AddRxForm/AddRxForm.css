@@ -1,0 +1,75 @@
+
+
+section > article {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    background-color: rgb(131, 155, 179);
+    padding: 5px 0px 5px 0px;
+    margin-top: 4px;
+    width: 50%;
+    margin-left: 25%;
+    border: 2px solid #61dafb;
+  }
+
+  section > hr {
+    font-family: Arial, Helvetica, sans-serif;
+      border-style: none;
+  }
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    justify-items: auto;
+    align-items: center;
+    text-align: center;
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    justify-items: auto;
+    align-items: center;
+    text-align: center;
+}
+
+
+.RxForm {
+    margin-top: 50px;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-top: 0.5rem;
+    justify-content: center;
+    
+  }
+  
+  label span {
+    width: 6.5rem;
+  }
+
+  .AddRxbtn {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: red;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    border: solid 2px #61dafb;
+    border-radius: 45%;
+    text-shadow: 1px 1px gray;
+    justify-items: center;
+    margin-top: 50px;
+    margin-left: 50%;
+  }
+
+  .deleteRxBtn {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #61dafb;
+    color: white;
+  }

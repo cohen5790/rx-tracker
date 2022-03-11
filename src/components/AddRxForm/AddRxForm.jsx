@@ -58,8 +58,10 @@ export default class AddRxPage extends Component {
         { this.props.user ?
         this.props.user.RxList.map((obj) => (
           <article key={obj.name}>
-            <div>{obj.name}</div> <div>{obj.dosage}</div>{" "}
+            <div>{obj.name}</div> 
+            <div>{obj.dosage}</div>
             <div>{obj.perdiem} times a day</div>
+            <button className="deleteRxBtn">delete</button>
           </article>
         ))
         :
@@ -67,7 +69,8 @@ export default class AddRxPage extends Component {
         }
         <hr />
         <form onSubmit={this.addRxToList}>
-          <main className="RxList">
+          <main className="RxForm">
+            <h4>Enter Rx info below to add a new medication to your list</h4>
             <label>
               <span>Name:</span>
               <input
@@ -102,7 +105,7 @@ export default class AddRxPage extends Component {
               </select>
             </label>
           </main>
-          <button>Add Rx</button>
+          <button className="AddRxbtn">Add Rx</button>
         </form>
       </section>
     );

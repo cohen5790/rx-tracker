@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './NavBar.css'
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
 export default class NavBar extends Component {
 
@@ -8,9 +10,10 @@ export default class NavBar extends Component {
             
                 <nav className="nav">
                     <h1>Rx-Tracker</h1>
-                    <Link to="/RxList">Rx Schedule</Link><br></br>
-                    <Link to="/Pharmacy">Pharmacy</Link><br></br>
-                    <Link to="/AddRx">Add Medication</Link><br></br>
+                    <Link className="navLink" to="/RxList">Rx Schedule</Link><br></br>
+                    <Link className="navLink" to="/Pharmacy">Pharmacy</Link><br></br>
+                    <Link className="navLink" to="/AddRx">Add Medication</Link><br></br>
+                    <UserLogOut />
                 </nav>
                 
             
