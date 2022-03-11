@@ -13,30 +13,40 @@ export default class AddRxPage extends Component {
   // async/await or .then()
   // fetch all new data from db
   // set that new data to state
-  addRxtoList = async (evt) => {
+  addRxToList = async (evt) => {
     evt.preventDefault();
     let MedObj = {
       name: this.state.name,
       dosage: this.state.dosage,
       perdiem: this.state.perdiem
     };
+    let token;
     try {
-    const fetchResponse = await fetch('/api/AddRx', {
+    let jwt = localStorage.getItem('token')
+    const fetchResponse = await fetch('/api/RxList', {
       method: 'POST',
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({name: this.state.name, dosage: this.state.dosage, perdiem: this.state.perdiem})
+      headers: {"Content-Type": "application/json", 'Authorization': 'Bearer ' + jwt},
+      body: JSON.stringify(MedObj)
     })
-    if (!fetchResponse.ok) throw new Error('Fetch failed - Bad request')
     
-    let RxList = [...this.state.RxList, MedObj];
-    this.setState({ RxList, name: "enter medication name", dosage: "enter dose", perdiem: 1 });
-    console.log(RxList); 
-
-  } catch (err) {
+    if (!fetchResponse.ok) throw new Error('Fetch failed - Bad request')
+    token = await fetchResponse.json()
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    console.log(token, payload)
+    let userDoc = payload.updatedUser 
+    this.props.setUserInState(userDoc)
+    console.log(userDoc)
+    localStorage.removeItem('token')
+    localStorage.setItem('token', token); 
+    } catch (err) {
     console.log("addRX error", err)
     this.setState({ error: 'Add Medication Failed - Try Again' });
   }
-    console.log(MedObj);    
+    
+    let RxList = [...this.state.RxList, MedObj];
+    this.setState({ RxList, name: "enter medication name", dosage: "enter dose", perdiem: 1 });
+    console.log(RxList);
+      console.log(MedObj);    
   };
 
   handleChange = (evt) => {
@@ -48,14 +58,18 @@ export default class AddRxPage extends Component {
       <section>
         <h2>Medication List</h2>
         <hr />
-        {this.state.RxList.map((obj) => (
+        { this.props.user ?
+        this.props.user.RxList.map((obj) => (
           <article key={obj.name}>
             <div>{obj.name}</div> <div>{obj.dosage}</div>{" "}
             <div>{obj.perdiem} times a day</div>
           </article>
-        ))}
+        ))
+        :
+        ""
+        }
         <hr />
-        <form onSubmit={this.addRxtoList}>
+        <form onSubmit={this.addRxToList}>
           <main className="RxList">
             <label>
               <span>Name:</span>

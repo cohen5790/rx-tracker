@@ -1,26 +1,26 @@
-const RxList = require('../../models/RxList');
-const Medication = require('../models/RxSchedule.js'); 
+const {User, Medication} = require('../models/user');
+const jwt = require('jsonwebtoken');
+const SECRET = process.env.SECRET;
+
 
 module.exports = {
-    create,
-    addRxToList,
+    createRx,
+    // index   
 }
 
-async function create(req, res) {
-    try {
-        await Medication.create(req.body)
-        res.status(200).json('medication created')
-     } catch(err) {
-        res.json(err);
-     }
+async function createRx(req, res) {
+    
+    const user = await User.findById(req.user._id)
+    console.log(user)
+    user.RxList.push(req.body)
+    const updatedUser = await user.save()
+    console.log(updatedUser)
+    const token = jwt.sign({updatedUser}, process.env.SECRET, { expiresIn: '24h' })
+    res.status(200).json(token)
+    
 }  
 
-
-
-RxList.methods.addRxToList = async function (itemId) {
-    const list = this;
-    const listItem = list.RxListItems.find(listItem => listItem.item._id.equals(itemId));
-    const item = await mongoose.model('Medication').findById(itemId);
-    list.RxListItems.push({ item });
-    return list.save();
-};
+// async function index(req, res) {
+//     const rxList = await RxList.find({user: req.user._id}).exec();
+//     res.json(rxList);
+// }

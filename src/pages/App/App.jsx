@@ -44,7 +44,7 @@ export default class App extends Component {
               <RxSchedulePage {...props}/>
             )}/>
             <Route path='/AddRx' render={(props) => (
-              <AddRxPage {...props}/>
+              <AddRxPage {...props} setUserInState={this.setUserInState} user={this.state.user}/>
             )}/>
             <Route path='/Pharmacy' render={(props) => (
               <PharmacyPage {...props}/>
@@ -52,8 +52,8 @@ export default class App extends Component {
             <Redirect to="/RxSchedule" />
           </Switch>
           :
-          <AuthPage setUserInState={this.setUserInState}/>
-        }
+          <AuthPage setUser={this.setUser} setUserInState={this.setUserInState}/>
+      }
       </main>
     );
   }    

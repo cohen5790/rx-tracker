@@ -1,6 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const medicationSchema = new Schema({
+  name: String,
+  dosage: String,
+  perdiem: {
+      type: Number,
+      min: 1,
+      max: 8,
+  }
+}, {
+  timestamps: true,
+});
+
 const userSchema = new Schema({
   name: {type: String, required: true},
   email: {
@@ -14,7 +26,8 @@ const userSchema = new Schema({
     trim: true,
     minLength: 3,
     required: true
-  }
+  },
+  RxList: [medicationSchema]
 }, {
   timestamps: true,
   toJSON: {
@@ -35,4 +48,11 @@ const userSchema = new Schema({
 //   });
 // });
 
-module.exports = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema)
+const Medication = mongoose.model('Medication', medicationSchema)
+
+
+module.exports = {
+  User,
+  Medication
+}

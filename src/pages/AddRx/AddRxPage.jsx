@@ -13,7 +13,7 @@ export default class AddRxPage extends Component {
             <div className="addRx">
                 <NavBar />
                 Add Rx Page
-                <AddRxForm />
+                <AddRxForm setUserInState={this.props.setUserInState} user={this.props.user}/>
             </div>
         );
     }
