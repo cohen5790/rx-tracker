@@ -9,10 +9,6 @@ export default class AddRxPage extends Component {
     perdiem: "1"
   };
   
-  // fetch/axios request with the MedObj in req.body
-  // async/await or .then()
-  // fetch all new data from db
-  // set that new data to state
   addRxToList = async (evt) => {
     evt.preventDefault();
     let MedObj = {
@@ -30,12 +26,13 @@ export default class AddRxPage extends Component {
     })
     
     if (!fetchResponse.ok) throw new Error('Fetch failed - Bad request')
+
     token = await fetchResponse.json()
     const payload = JSON.parse(atob(token.split('.')[1]));
-    console.log(token, payload)
+      console.log(token, payload)
     let userDoc = payload.updatedUser 
     this.props.setUserInState(userDoc)
-    console.log(userDoc)
+      console.log(userDoc)
     localStorage.removeItem('token')
     localStorage.setItem('token', token); 
     } catch (err) {

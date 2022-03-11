@@ -5,7 +5,7 @@ import RxSchedulePage from '../RxSchedule/RxSchedulePage.jsx';
 import AddRxPage from '../AddRx/AddRxPage.jsx';
 import PharmacyPage from '../Pharmacy/PharmacyPage.jsx';
 import AuthPage from '../AuthPage/AuthPage.jsx';
-import { user } from 'pg/lib/defaults';
+
 
 
 
@@ -39,7 +39,7 @@ export default class App extends Component {
     return (
       <main className="App">
       { this.state.user ?
-          <Switch>    
+          <Switch>                
             <Route path='/RxSchedule' render={(props) => (
               <RxSchedulePage {...props}/>
             )}/>

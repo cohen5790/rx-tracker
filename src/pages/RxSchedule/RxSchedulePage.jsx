@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
-
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
 export default class RxListPage extends Component {
 
@@ -8,6 +8,7 @@ export default class RxListPage extends Component {
         return(
             <div className="RxList">
                 <NavBar />
+                <UserLogOut />
                 
             </div>
         );

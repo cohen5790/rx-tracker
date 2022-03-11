@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './AddRxPage.css';
 import NavBar from '../../components/NavBar/NavBar';
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
 import AddRxForm from '../../components/AddRxForm/AddRxForm'
 
 export default class AddRxPage extends Component {
@@ -12,7 +13,7 @@ export default class AddRxPage extends Component {
         return(
             <div className="addRx">
                 <NavBar />
-                Add Rx Page
+                <UserLogOut />
                 <AddRxForm setUserInState={this.props.setUserInState} user={this.props.user}/>
             </div>
         );

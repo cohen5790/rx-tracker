@@ -1,4 +1,4 @@
-const RxList = require('../models/RxList.js')
+const RxList = require('../models/user.js')
 
 module.exports = {
     index,
