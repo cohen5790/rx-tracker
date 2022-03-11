@@ -5,7 +5,7 @@ const logger = require('morgan');
 
 require('dotenv').config();
 
-require('../../config/database')
+require('./config/database')
 
 const app = express();
 
@@ -19,11 +19,11 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Middleware to verify token and assign user object of payload to req.user
 // app.use(require('./config/checkToken'));
-app.use(require('../../config/auth'));
+app.use(require('./config/auth'));
 
 // Put API routes here, before the "catch all" route
-app.use('/api/users', require('../../routes/api/users'));
-app.use('/api', require('../../routes/api/RxList'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api', require('./routes/api/RxList'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
