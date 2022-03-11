@@ -23,7 +23,7 @@ app.use(require('./config/auth'));
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api', require('./routes/api/RxList'));
+app.use('/api', require('./routes/api/rxList'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
