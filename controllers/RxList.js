@@ -5,7 +5,7 @@ const SECRET = process.env.SECRET;
 
 module.exports = {
     createRx,
-    // index   
+    deleteRx  
 }
 
 async function createRx(req, res) {
@@ -20,7 +20,11 @@ async function createRx(req, res) {
     
 }  
 
-// async function index(req, res) {
-//     const rxList = await RxList.find({user: req.user._id}).exec();
-//     res.json(rxList);
-// }
+async function deleteRx(req, res) {
+    const userDelete = await User.findById(req.user._id)
+    console.log(userDelete)
+    userDelete.RxList.pop(req.body)
+    const updatedUserDelete = await userDelete.save()
+    const tokenDelete = jwt.sign({updatedUserDelete}, process.env.SECRET, { expiresIn: '24h' })
+    res.status(200).json(tokenDelete)
+}
