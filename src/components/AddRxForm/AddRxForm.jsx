@@ -1,6 +1,5 @@
 import "./AddRxForm.css"
 import React, { Component } from "react";
-import { user } from "pg/lib/defaults";
 
 export default class AddRxPage extends Component {
   state = {
