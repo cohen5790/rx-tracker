@@ -4,8 +4,7 @@ const SECRET = process.env.SECRET;
 
 
 module.exports = {
-    createRx,
-    // deleteRx  
+    createRx,  
 }
 
 async function createRx(req, res) {
